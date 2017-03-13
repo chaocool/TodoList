@@ -24979,9 +24979,8 @@ var app = new _vue2.default({
             var AVTodos = _leancloudStorage2.default.Object.extend('AllTodos');
             var avTodos = new AVTodos();
             var acl = new _leancloudStorage2.default.ACL();
-            acl.setReadAccess(_leancloudStorage2.default.User.current(), true); // 只读
-            acl.setWriteAccess(_leancloudStorage2.default.User.current(), true); //只写
-
+            acl.setReadAccess(_leancloudStorage2.default.User.current(), true); // user只读
+            acl.setWriteAccess(_leancloudStorage2.default.User.current(), true); // user 只写
 
             avTodos.set('content', dataString);
             avTodos.setACL(acl); //设置访问控制

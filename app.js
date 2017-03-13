@@ -70,7 +70,7 @@ var app = new Vue({
             let dataString = JSON.stringify(this.todoList);
             let avTodos = AV.Object.createWithoutData('AllTodos', this.todoList.id);
             avTodos.set('content', dataString);
-            avTodos.save().then(()=>{
+            avTodos.save().then(() =>{
                 console.log('更新成功')
             });
         },
@@ -79,9 +79,8 @@ var app = new Vue({
             var AVTodos = AV.Object.extend('AllTodos');
             var avTodos = new AVTodos();
             var acl = new AV.ACL();
-            acl.setReadAccess(AV.User.current(),true);// 只读
-            acl.setWriteAccess(AV.User.current(),true); //只写
-
+            acl.setReadAccess(AV.User.current(),true);// user只读
+            acl.setWriteAccess(AV.User.current(),true); // user 只写
 
             avTodos.set('content', dataString);
             avTodos.setACL(acl); //设置访问控制
@@ -109,7 +108,7 @@ var app = new Vue({
                 title: this.newTodo,
                 createdAt: this.formatTime(),
                 done: false  //添加一个 done 属性
-            });
+            })
             this.newTodo = '';
             //console.log(this.todoList)
             this.saveOrUpdateTodos(); //不能用 saveTodos 了
@@ -141,7 +140,7 @@ var app = new Vue({
             let user = new AV.User();
             user.setUsername(this.formData.username);
             user.setPassword(this.formData.password);
-            user.signUp().then((loginedUser)=>{
+            user.signUp().then((loginedUser) => {
                 this.currentUser = this.getCurrentUser()
         }, (error)=>{
                 alert('注册失败');
@@ -165,7 +164,7 @@ var app = new Vue({
             let current = AV.User.current();
 
             if(current){
-                let {id, createdAt, attributes:{username}} = current;
+                let {id, createdAt, attributes:{username}} = current
 
                 return {id, username, createdAt};
             }else{
