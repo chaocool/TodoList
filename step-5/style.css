@@ -94,10 +94,9 @@ button:hover{
     padding: 0 1rem;
 }
 .todos > li{
-    width: 90%;
+    width: 98%;
     position: relative;
-    margin-left: 2rem;
-    padding: 5px;
+    margin-left: 1rem;
 }
 .createtime{
     font-size: 16px;
